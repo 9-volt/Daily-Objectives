@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "protein_powder_bottle_jar_bodybuilding_power_strength_gain_gainer_muscle_nutrition_energy_container_supplement_vitamin_athletic_food_strong_gym_training_sport_calories_flat_design_icon-256.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		3709178B1B553E0B0058B26A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3709178A1B553E0B0058B26A /* AppDelegate.swift */; };
 		3709178E1B553E0C0058B26A /* Daily_Objective.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3709178C1B553E0B0058B26A /* Daily_Objective.xcdatamodeld */; };
-		370917901B553E0C0058B26A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3709178F1B553E0C0058B26A /* ViewController.swift */; };
 		370917931B553E0C0058B26A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370917911B553E0C0058B26A /* Main.storyboard */; };
 		370917951B553E0C0058B26A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370917941B553E0C0058B26A /* Images.xcassets */; };
 		370917981B553E0C0058B26A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370917961B553E0C0058B26A /* LaunchScreen.xib */; };
 		370917A41B553E0C0058B26A /* Daily_ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */; };
+		3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */; };
+		3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +32,14 @@
 		370917891B553E0B0058B26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3709178A1B553E0B0058B26A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3709178D1B553E0B0058B26A /* Daily_Objective.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Daily_Objective.xcdatamodel; sourceTree = "<group>"; };
-		3709178F1B553E0C0058B26A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		370917921B553E0C0058B26A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		370917941B553E0C0058B26A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		370917971B553E0C0058B26A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3709179D1B553E0C0058B26A /* Daily-ObjectiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daily-ObjectiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		370917A21B553E0C0058B26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ObjectiveTests.swift; sourceTree = "<group>"; };
+		3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectivesTableViewController.swift; sourceTree = "<group>"; };
+		3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				3709178A1B553E0B0058B26A /* AppDelegate.swift */,
-				3709178F1B553E0C0058B26A /* ViewController.swift */,
+				3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */,
+				3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */,
 				370917911B553E0C0058B26A /* Main.storyboard */,
 				370917941B553E0C0058B26A /* Images.xcassets */,
 				370917961B553E0C0058B26A /* LaunchScreen.xib */,
@@ -215,8 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				370917901B553E0C0058B26A /* ViewController.swift in Sources */,
 				3709178B1B553E0B0058B26A /* AppDelegate.swift in Sources */,
+				3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */,
+				3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */,
 				3709178E1B553E0C0058B26A /* Daily_Objective.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +419,7 @@
 				370917A91B553E0C0058B26A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		370917AA1B553E0C0058B26A /* Build configuration list for PBXNativeTarget "Daily-ObjectiveTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				370917AC1B553E0C0058B26A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
