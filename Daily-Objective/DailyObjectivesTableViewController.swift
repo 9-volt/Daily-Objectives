@@ -93,11 +93,14 @@ class DailyObjectivesTableViewController: UITableViewController {
     
     var objectivesImages = ["eyesight", "pushups", "milk", "challenge", "walking", "proteins"]
     
+    var completedObjectives = [Bool](count: 21, repeatedValue: false)
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // Return the number of rows in the section.
         return self.dailyObjectives.count
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -107,9 +110,58 @@ class DailyObjectivesTableViewController: UITableViewController {
         // Configure the cell...
         cell.objectiveLabel!.text = dailyObjectives[indexPath.row]
         cell.thumbnailImageView!.image = UIImage(named: objectivesImages[indexPath.row])
-        
+        cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
+        cell.thumbnailImageView.clipsToBounds = true
+        cell.accessoryType = completedObjectives[indexPath.row] ? .Checkmark : .None
         return cell
+        }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Create an option menu as an action sheet
+        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .ActionSheet)
+        
+        // Add actions to the menu
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        
+            // closure
+        let callActionHandler = { (action:UIAlertAction!) -> Void in
+            let alertMessage = UIAlertController(title: "Service Unavailable", message: "How do you think you will call your objective?", preferredStyle: .Alert)
+            alertMessage.addAction(UIAlertAction(title: "I'm drunk", style: .Default, handler: nil))
+            self.presentViewController(alertMessage, animated: true, completion: nil)}
+        
+        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: UIAlertActionStyle.Default, handler: callActionHandler)
+        optionMenu.addAction(callAction)
+        
+            // inline closure
+        let isCompletedAction = UIAlertAction(title: "I did this!", style: .Default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .Checkmark
+            self.completedObjectives[indexPath.row] = true
+            })
+        optionMenu.addAction(isCompletedAction)
+        
+        // Deselect row to not be gray
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        
+        // Display the menu
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
