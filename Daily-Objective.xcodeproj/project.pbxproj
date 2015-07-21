@@ -15,6 +15,7 @@
 		370917A41B553E0C0058B26A /* Daily_ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */; };
 		3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */; };
 		3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */; };
+		379FE62B1B5EA13900B9E67A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379FE62A1B5EA13900B9E67A /* DetailViewController.swift */; };
 		37D84AD91B5808E300B6CAF4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37D84AD81B5808E300B6CAF4 /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ObjectiveTests.swift; sourceTree = "<group>"; };
 		3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectivesTableViewController.swift; sourceTree = "<group>"; };
 		3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		379FE62A1B5EA13900B9E67A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		37D84AD81B5808E300B6CAF4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				3709178A1B553E0B0058B26A /* AppDelegate.swift */,
 				3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */,
 				3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */,
+				379FE62A1B5EA13900B9E67A /* DetailViewController.swift */,
 				370917911B553E0C0058B26A /* Main.storyboard */,
 				370917941B553E0C0058B26A /* Images.xcassets */,
 				370917961B553E0C0058B26A /* LaunchScreen.xib */,
@@ -224,6 +227,7 @@
 			files = (
 				3709178B1B553E0B0058B26A /* AppDelegate.swift in Sources */,
 				3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */,
+				379FE62B1B5EA13900B9E67A /* DetailViewController.swift in Sources */,
 				3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */,
 				3709178E1B553E0C0058B26A /* Daily_Objective.xcdatamodeld in Sources */,
 			);

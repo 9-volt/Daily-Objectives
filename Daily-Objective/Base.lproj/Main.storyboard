@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Md-F6-b5J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1On-np-7aJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Daily Objectives Table View Controller-->
+        <!--Daily Objectives-->
         <scene sceneID="Fv0-xU-Xub">
             <objects>
                 <tableViewController id="5Md-F6-b5J" customClass="DailyObjectivesTableViewController" customModule="Daily_Objective" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="Cp7-Bp-ybY" customClass="CustomTableViewCell" customModule="Daily_Objective" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="Cp7-Bp-ybY" customClass="CustomTableViewCell" customModule="Daily_Objective" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cp7-Bp-ybY" id="qEC-u9-Qkm">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -39,6 +40,7 @@
                                     <outlet property="completionLabel" destination="rL0-ZV-nJ2" id="X1c-ZU-i9T"/>
                                     <outlet property="objectiveLabel" destination="tYb-Vw-Yx7" id="3TL-5V-AH7"/>
                                     <outlet property="thumbnailImageView" destination="yGS-qK-noX" id="Mra-le-Xok"/>
+                                    <segue destination="3Ce-ST-c3d" kind="show" identifier="showObjectiveDetail" id="kbP-Gm-s2K"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -47,8 +49,62 @@
                             <outlet property="delegate" destination="5Md-F6-b5J" id="whl-la-sLs"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Daily Objectives" id="q20-sA-CTF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrY-3S-4Ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="267"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="JhI-No-ebK">
+            <objects>
+                <viewController id="3Ce-ST-c3d" customClass="DetailViewController" customModule="Daily_Objective" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VFs-Vk-pvh"/>
+                        <viewControllerLayoutGuide type="bottom" id="fa2-Q4-4a2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dmh-9L-c7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Suj-9l-fWa">
+                                <rect key="frame" x="172" y="64" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="LXQ-yo-KVL"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Suj-9l-fWa" secondAttribute="trailing" constant="156" id="62I-vP-rR3"/>
+                            <constraint firstAttribute="centerX" secondItem="Suj-9l-fWa" secondAttribute="centerX" id="HDF-Pu-NWU"/>
+                            <constraint firstItem="Suj-9l-fWa" firstAttribute="leading" secondItem="dmh-9L-c7Q" secondAttribute="leadingMargin" constant="156" id="SLs-Cn-1mw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WE9-kK-su0"/>
+                    <connections>
+                        <outlet property="objectiveImageView" destination="Suj-9l-fWa" id="mjX-td-bee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWF-Ga-OJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1917" y="267"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3q9-Yu-sqI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1On-np-7aJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OiM-o3-oeI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Md-F6-b5J" kind="relationship" relationship="rootViewController" id="LVq-84-ThN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEO-QC-ARr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="430" y="267"/>
         </scene>
