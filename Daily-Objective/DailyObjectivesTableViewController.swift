@@ -90,16 +90,22 @@ class DailyObjectivesTableViewController: UITableViewController {
     }
     */
 
-    var dailyObjectives = ["Train Eyesight", "Pushups", "Buy milk", "Solve 1 Challenge", "Make 10k Steps", "Eat 100 Proteins"]
+
+    var objectives:[Objective] = [
+        Objective(name: "Train Eyesight", icon: "eyesight", progress: 0, status: false),
+        Objective(name: "Pushups", icon: "pushups", progress: 0, status: false),
+        Objective(name: "Buy Milk", icon: "milk", progress: 0, status: false),
+        Objective(name: "Solve 1 Challenge", icon: "challenge", progress: 0, status: false),
+        Objective(name: "Make 10k Steps", icon: "walking", progress: 0.3, status: false),
+        Objective(name: "Eat 100 proteins", icon: "proteins", progress: 0.7, status: false)
+    ]
     
-    var objectivesImages = ["eyesight", "pushups", "milk", "challenge", "walking", "proteins"]
     
-    var completedObjectives = [Bool](count: 21, repeatedValue: false)
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // Return the number of rows in the section.
-        return self.dailyObjectives.count
+        return self.objectives.count
     }
     
     
@@ -109,16 +115,22 @@ class DailyObjectivesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustomTableViewCell
         
         // Configure the cell...
-        cell.objectiveLabel!.text = dailyObjectives[indexPath.row]
-        cell.thumbnailImageView!.image = UIImage(named: objectivesImages[indexPath.row])
+        let objective = objectives[indexPath.row]
+        cell.nameLabel.text = objective.name
+        cell.thumbnailImageView.image = UIImage(named: objective.icon)
+        cell.progressBar.progress = objective.progress
+        
+        // Circular icon
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
-        cell.accessoryType = completedObjectives[indexPath.row] ? .Checkmark : .None
+        
+        // Checkmark
+        cell.accessoryType = objective.status ? .Checkmark : .None
         return cell
         }
     
     
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        
 //        // Create an option menu as an action sheet
 //        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .ActionSheet)
@@ -127,7 +139,7 @@ class DailyObjectivesTableViewController: UITableViewController {
 //        // Cancel Action
 //        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 //        optionMenu.addAction(cancelAction)
-//        
+        
 //            // Add call action
 //        // closure
 //        let callActionHandler = { (action:UIAlertAction!) -> Void in
@@ -142,7 +154,7 @@ class DailyObjectivesTableViewController: UITableViewController {
 //        
 //            // Add "Completed" action
 //            // inline closure
-//        let isCompletedTitle = completedObjectives[indexPath.row] ? "I lied" : "I did this!"
+//        let isCompletedTitle = objective.status[indexPath.row] ? "I lied" : "I did this!"
 //        let isCompletedAction = UIAlertAction(title: isCompletedTitle, style: .Default, handler: {
 //            (action:UIAlertAction!) -> Void in
 //            
@@ -154,26 +166,24 @@ class DailyObjectivesTableViewController: UITableViewController {
 //            
 //            })
 //        optionMenu.addAction(isCompletedAction)
-//        
-//        // Deselect cell
-//        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-//        
-//        
-//        // Display the menu
-//        self.presentViewController(optionMenu, animated: true, completion: nil)
-//    }
+        
+        // Deselect cell
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        
+        // Display the menu
+       // self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
   
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from data source
-            self.dailyObjectives.removeAtIndex(indexPath.row)
-            self.objectivesImages.removeAtIndex(indexPath.row)
-            self.completedObjectives.removeAtIndex(indexPath.row)
-            
+            self.objectives.removeAtIndex(indexPath.row)
+          
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            println("Total item: \(self.dailyObjectives.count)")
-            for objective in dailyObjectives {
+            println("Total item: \(self.objectives.count)")
+            for objective in objectives {
                 println(objective)
                 }
             
@@ -201,9 +211,7 @@ class DailyObjectivesTableViewController: UITableViewController {
     var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
         
         // Delete the row from data source
-        self.dailyObjectives.removeAtIndex(indexPath.row)
-        self.objectivesImages.removeAtIndex(indexPath.row)
-        self.completedObjectives.removeAtIndex(indexPath.row)
+        self.objectives.removeAtIndex(indexPath.row)
         
         self.tableView.deleteRowsAtIndexPaths ([indexPath], withRowAnimation: .Fade)
             }
@@ -218,7 +226,7 @@ class DailyObjectivesTableViewController: UITableViewController {
         if segue.identifier == "showObjectiveDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let destinationController = segue.destinationViewController as! DetailViewController
-                destinationController.objectiveImage = self.objectivesImages[indexPath.row]
+                destinationController.objectiveImage = self.objectives[indexPath.row].icon
             }
         }
     }

@@ -10,9 +10,10 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var objectiveLabel: UILabel!
-    @IBOutlet weak var completionLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var progressBar: UIProgressView!
     
 
     override func awakeFromNib() {
