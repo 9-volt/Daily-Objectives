@@ -13,11 +13,13 @@
 		370917951B553E0C0058B26A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370917941B553E0C0058B26A /* Images.xcassets */; };
 		370917981B553E0C0058B26A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370917961B553E0C0058B26A /* LaunchScreen.xib */; };
 		370917A41B553E0C0058B26A /* Daily_ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */; };
+		372DC7721B6139090095286C /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372DC7711B6139090095286C /* ReviewViewController.swift */; };
 		3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */; };
 		3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */; };
 		379FE62B1B5EA13900B9E67A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379FE62A1B5EA13900B9E67A /* DetailViewController.swift */; };
 		379FE62D1B5F0FAD00B9E67A /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379FE62C1B5F0FAD00B9E67A /* Objective.swift */; };
 		37D84AD91B5808E300B6CAF4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37D84AD81B5808E300B6CAF4 /* Entitlements.plist */; };
+		37FCE7EA1B60F019000E1BAD /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCE7E91B60F019000E1BAD /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +43,13 @@
 		3709179D1B553E0C0058B26A /* Daily-ObjectiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daily-ObjectiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		370917A21B553E0C0058B26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ObjectiveTests.swift; sourceTree = "<group>"; };
+		372DC7711B6139090095286C /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectivesTableViewController.swift; sourceTree = "<group>"; };
 		3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		379FE62A1B5EA13900B9E67A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		379FE62C1B5F0FAD00B9E67A /* Objective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
 		37D84AD81B5808E300B6CAF4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		37FCE7E91B60F019000E1BAD /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +96,14 @@
 				3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */,
 				3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */,
 				379FE62A1B5EA13900B9E67A /* DetailViewController.swift */,
+				37FCE7E91B60F019000E1BAD /* DetailTableViewCell.swift */,
 				379FE62C1B5F0FAD00B9E67A /* Objective.swift */,
 				370917911B553E0C0058B26A /* Main.storyboard */,
 				370917941B553E0C0058B26A /* Images.xcassets */,
 				370917961B553E0C0058B26A /* LaunchScreen.xib */,
 				3709178C1B553E0B0058B26A /* Daily_Objective.xcdatamodeld */,
 				370917881B553E0B0058B26A /* Supporting Files */,
+				372DC7711B6139090095286C /* ReviewViewController.swift */,
 			);
 			path = "Daily-Objective";
 			sourceTree = "<group>";
@@ -230,9 +236,11 @@
 			files = (
 				3709178B1B553E0B0058B26A /* AppDelegate.swift in Sources */,
 				3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */,
+				37FCE7EA1B60F019000E1BAD /* DetailTableViewCell.swift in Sources */,
 				379FE62B1B5EA13900B9E67A /* DetailViewController.swift in Sources */,
 				379FE62D1B5F0FAD00B9E67A /* Objective.swift in Sources */,
 				3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */,
+				372DC7721B6139090095286C /* ReviewViewController.swift in Sources */,
 				3709178E1B553E0C0058B26A /* Daily_Objective.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

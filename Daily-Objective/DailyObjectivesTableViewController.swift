@@ -13,11 +13,20 @@ class DailyObjectivesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action:nil)
+            
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hides the navigation bar on swipe
+        self.navigationController?.hidesBarsOnSwipe = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,16 +42,6 @@ class DailyObjectivesTableViewController: UITableViewController {
         return 1
     }
 
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,14 +91,13 @@ class DailyObjectivesTableViewController: UITableViewController {
 
 
     var objectives:[Objective] = [
-        Objective(name: "Train Eyesight", icon: "eyesight", progress: 0, status: false),
-        Objective(name: "Pushups", icon: "pushups", progress: 0, status: false),
+        Objective(name: "Train Eyesight", icon: "eyesight", progress: 1, status: false),
+        Objective(name: "Pushups", icon: "pushups", progress: 0.8, status: false),
         Objective(name: "Buy Milk", icon: "milk", progress: 0, status: false),
         Objective(name: "Solve 1 Challenge", icon: "challenge", progress: 0, status: false),
         Objective(name: "Make 10k Steps", icon: "walking", progress: 0.3, status: false),
         Objective(name: "Eat 100 proteins", icon: "proteins", progress: 0.7, status: false)
     ]
-    
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -226,7 +224,7 @@ class DailyObjectivesTableViewController: UITableViewController {
         if segue.identifier == "showObjectiveDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let destinationController = segue.destinationViewController as! DetailViewController
-                destinationController.objectiveImage = self.objectives[indexPath.row].icon
+                destinationController.objective = objectives[indexPath.row]
             }
         }
     }

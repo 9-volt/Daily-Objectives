@@ -17,6 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+            // Set Status Bar Style to Light:
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+            //Change the background color of navigation bar:
+            UINavigationBar.appearance().barTintColor = UIColor(red: 89.0/255.0, green: 171.0/255.0, blue: 227.0/255, alpha: 0.3)
+        
+            // Change the color of navigation buttons:
+            UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+            // Change the font, text color,text shadow color, text shadow effects for the title:
+            if let barFont = UIFont(name: "AvenirNext-Regular", size: 22.0) {
+                UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
+                }
+        
+            // Change the color of bar buttons:
+        UIBarButtonItem.appearance().tintColor = UIColor(red: 89.0/255.0, green: 171.0/255.0, blue: 227.0/255, alpha: 1.0)
+        UIToolbar.appearance().barTintColor = UIColor(red: 237.0/255.0, green: 240.0/255.0, blue: 243.0/255, alpha: 0.5)
         return true
     }
 
