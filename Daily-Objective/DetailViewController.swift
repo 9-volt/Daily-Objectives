@@ -12,16 +12,25 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet var tableView:UITableView!
     @IBOutlet var objectiveImageView:UIImageView!
+    
     var objective:Objective!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.objectiveImageView.image = UIImage(data: objective.image)
+        
+        // Set navigation bar title
         title = self.objective.name
-        self.objectiveImageView.image = UIImage(named: objective.icon)
+        
+        // Set table view background color
         self.tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        
+        // Remove extra separator
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        // Change separator color
         self.tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         
         // Enabling Self Sizing Cells
@@ -50,6 +59,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! DetailTableViewCell
         
         // Configure the cell
+       // cell.mapButton.hidden = true
+        
         switch indexPath.row {
         case 0:
             cell.fieldLabel.text = "Name"
@@ -59,7 +70,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             cell.valueLabel.text = "\(objective.progress)"
         case 2:
             cell.fieldLabel.text = "Status"
-            cell.valueLabel.text = (objective.status) ? "Completed" : "In progress"
+            cell.valueLabel.text = (objective.status.boolValue) ? "Completed" : "In progress"
+//        case 3:
+//            cell.fieldLabel.text = "Location"
+//            cell.valueLabel.text = objective.location
+//            cell.mapButton.hidden = false
         default:
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""

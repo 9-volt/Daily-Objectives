@@ -7,14 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
-class DailyObjectivesTableViewController: UITableViewController {
+class DailyObjectivesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    var fetchResultController:NSFetchedResultsController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action:nil)
+        // Fetching Data Using Core Data
+        var fetchRequest = NSFetchRequest(entityName: "Objective")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
             
+            var e: NSError?
+            var result = fetchResultController.performFetch(&e)
+            objectives = fetchResultController.fetchedObjects as! [Objective]
+            
+            if result != true {
+                println(e?.localizedDescription)
+            }
+        }
+        
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action:nil)
+        
+//         //Self sizing cells:
+//        self.tableView.estimatedRowHeight = 80.0;
+//        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -90,14 +116,14 @@ class DailyObjectivesTableViewController: UITableViewController {
     */
 
 
-    var objectives:[Objective] = [
-        Objective(name: "Train Eyesight", icon: "eyesight", progress: 1, status: false),
-        Objective(name: "Pushups", icon: "pushups", progress: 0.8, status: false),
-        Objective(name: "Buy Milk", icon: "milk", progress: 0, status: false),
-        Objective(name: "Solve 1 Challenge", icon: "challenge", progress: 0, status: false),
-        Objective(name: "Make 10k Steps", icon: "walking", progress: 0.3, status: false),
-        Objective(name: "Eat 100 proteins", icon: "proteins", progress: 0.7, status: false)
-    ]
+    var objectives:[Objective] = []
+//        Objective(name: "Train Eyesight", icon: "eyesight", progress: 1, status: false),
+//        Objective(name: "Pushups", icon: "pushups", progress: 8, status: false),
+//        Objective(name: "Buy Milk", icon: "milk", progress: 0, status: false),
+//        Objective(name: "Solve 1 Challenge", icon: "challenge", progress: 0, status: false),
+//        Objective(name: "Make 10k Steps", icon: "walking", progress: 3, status: false),
+//        Objective(name: "Eat 100 proteins", icon: "proteins", progress: 7, status: false)
+//    ]
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -115,15 +141,15 @@ class DailyObjectivesTableViewController: UITableViewController {
         // Configure the cell...
         let objective = objectives[indexPath.row]
         cell.nameLabel.text = objective.name
-        cell.thumbnailImageView.image = UIImage(named: objective.icon)
-        cell.progressBar.progress = objective.progress
+        cell.thumbnailImageView.image = UIImage(data: objective.image)
+        //cell.progressBar.progress = progress
         
         // Circular icon
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
         
         // Checkmark
-        cell.accessoryType = objective.status ? .Checkmark : .None
+        cell.accessoryType = objective.status.boolValue ? .Checkmark : .None
         return cell
         }
     
@@ -208,12 +234,18 @@ class DailyObjectivesTableViewController: UITableViewController {
     
     var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
         
-        // Delete the row from data source
-        self.objectives.removeAtIndex(indexPath.row)
-        
-        self.tableView.deleteRowsAtIndexPaths ([indexPath], withRowAnimation: .Fade)
+        // Delete the row from the data source
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+            
+            let objectiveToDelete = self.fetchResultController.objectAtIndexPath(indexPath) as! Objective
+            managedObjectContext.deleteObject(objectiveToDelete)
+            
+            var e: NSError?
+            if managedObjectContext.save(&e) != true {
+                println("delete error: \(e!.localizedDescription)")
+                }
             }
-        )
+        })
     
     shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
     deleteAction.backgroundColor = UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
@@ -229,8 +261,40 @@ class DailyObjectivesTableViewController: UITableViewController {
         }
     }
     
-}
     
+    // Refreshing table with new entries
+    func controllerWillChangeContent(controller: NSFetchedResultsController!) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController!, didChangeObject anObject: AnyObject!, atIndexPath indexPath: NSIndexPath!, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath!) {
+        
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        case .Update:
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+        default:
+            tableView.reloadData()
+        }
+        
+        objectives = controller.fetchedObjects as! [Objective]
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
+    
+    
+    @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
+        
+    }
+    
+}
+
     
     
 

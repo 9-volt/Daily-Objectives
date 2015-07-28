@@ -7,18 +7,13 @@
 //
 
 import Foundation
+import CoreData
 
-class Objective {
-    var name:String = ""
-    var icon:String = ""
-    var progress:Float = 0
-    var status:Bool = false
-    
-    init(name:String, icon:String, progress:Float, status:Bool) {
-        self.name = name
-        self.icon = icon
-        self.progress = progress
-        self.status = status
-    }
+class Objective:NSManagedObject {
+    @NSManaged var name:String!
+    @NSManaged var image:NSData!
+    @NSManaged var progress:String!
+    @NSManaged var status:NSNumber!
+    @NSManaged var quantity:String!
     
 }
