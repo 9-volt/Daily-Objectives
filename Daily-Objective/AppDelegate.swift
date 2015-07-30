@@ -32,7 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             // Change the Toolbar Style
         UIToolbar.appearance().barTintColor = UIColor(red: 237.0/255.0, green: 240.0/255.0, blue: 243.0/255, alpha: 0.5)
-
+        
+        
+           // Change Tab Bar Style
+           // tint color of tab bar item:
+        UITabBar.appearance().tintColor = UIColor(red: 89.0/255.0, green: 171.0/255.0, blue: 227.0/255, alpha: 1.0)
+           // bar tint color:
+//        UITabBar.appearance().barTintColor = UIColor(red: 237.0/255.0, green: 240.0/255.0, blue: 243.0/255, alpha: 0.5)
+           // Selected tab item image
+        //UITabBar.appearance().selectionIndicatorImage = UIImage(named: "tabitem_selected")
+        
         return true
     }
 
