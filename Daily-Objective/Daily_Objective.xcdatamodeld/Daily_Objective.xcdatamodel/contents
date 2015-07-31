@@ -5,7 +5,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="progress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="remainder" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reminder" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Boolean" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>

@@ -32,7 +32,7 @@
                                             <rect key="frame" x="86" y="60" width="222" height="2"/>
                                             <color key="progressTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </progressView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Progress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL0-ZV-nJ2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HH:MM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL0-ZV-nJ2">
                                             <rect key="frame" x="152" y="34" width="205" height="18"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,12 +155,10 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="gON-Y0-HU6">
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tub-AI-Prq">
                                                     <rect key="frame" x="0.0" y="-3" width="320" height="162"/>
-                                                    <color key="backgroundColor" red="0.93934428690000005" green="0.28993204239999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="tintColor" red="0.34901960780000002" green="0.6705882353" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="459691905.71138602">
-                                                        <!--2015-07-27 12:11:45 +0000-->
+                                                    <date key="date" timeIntervalSinceReferenceDate="460039059.50375497">
+                                                        <!--2015-07-31 12:37:39 +0000-->
                                                     </date>
                                                 </datePicker>
                                             </subviews>
@@ -187,6 +185,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="tub-AI-Prq" id="OmV-g8-ayy"/>
                         <outlet property="imageView" destination="0da-SV-bjj" id="4G7-X2-Vgc"/>
                         <outlet property="nameTextField" destination="ir4-ID-ZvQ" id="31w-sT-ig9"/>
                         <outlet property="quantityTextField" destination="9OB-zk-LtF" id="erW-ca-zcE"/>
@@ -465,10 +464,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="M5l-v0-fT1" appends="YES" id="ft2-xy-gbm"/>
+                            <outletCollection property="gestureRecognizers" destination="0ga-pz-awi" appends="YES" id="gSi-aK-zJs"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="LM6-JE-NE3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gt-pG-gCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="M5l-v0-fT1"/>
+                <pinchGestureRecognizer id="0ga-pz-awi"/>
             </objects>
             <point key="canvasLocation" x="1194" y="1687"/>
         </scene>

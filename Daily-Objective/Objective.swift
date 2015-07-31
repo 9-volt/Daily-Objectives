@@ -15,5 +15,6 @@ class Objective:NSManagedObject {
     @NSManaged var progress:String!
     @NSManaged var status:NSNumber!
     @NSManaged var quantity:String!
+    @NSManaged var reminder:NSDateFormatter!
     
 }

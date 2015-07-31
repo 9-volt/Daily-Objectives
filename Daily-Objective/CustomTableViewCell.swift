@@ -14,6 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var reminderLabel: UILabel!
     
 
     override func awakeFromNib() {

@@ -17,11 +17,27 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var nameTextField:UITextField!
     @IBOutlet weak var quantityTextField:UITextField!
  // @IBOutlet weak var repetition ? field
+    @IBOutlet weak var datePicker:UIDatePicker!
     
     var objective:Objective!
     
+    /// A date formatter to format the `date` property of `datePicker`.
+    lazy var dateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.timeStyle = .ShortStyle
+        
+        return dateFormatter
+        }()
+    
+    func datePickerDateChanged(datePicker: UIDatePicker){
+        println("Selected date = \(dateFormatter.stringFromDate(datePicker.date))")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.addTarget(self, action: "datePickerDateChanged:", forControlEvents: .ValueChanged)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -118,6 +134,8 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         // If all fields are correctly filled in, extract the field value
           println("Name: " + nameTextField.text)
           println("Quantity: " + quantityTextField.text)
+        let currentDate = datePicker.date
+        println(dateFormatter.stringFromDate(datePicker.date))
         
         
         // Execute the unwind segue and go back to the home screen

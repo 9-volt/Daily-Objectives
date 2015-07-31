@@ -144,6 +144,7 @@ class DailyObjectivesTableViewController: UITableViewController, NSFetchedResult
         cell.thumbnailImageView.image = UIImage(data: objective.image)
         //cell.progressBar.progress = progress
         
+        
         // Circular icon
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
