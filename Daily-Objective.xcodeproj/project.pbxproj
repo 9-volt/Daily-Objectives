@@ -14,6 +14,7 @@
 		370917981B553E0C0058B26A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370917961B553E0C0058B26A /* LaunchScreen.xib */; };
 		370917A41B553E0C0058B26A /* Daily_ObjectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */; };
 		371A517F1B665E7D00A7B4C1 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A517E1B665E7D00A7B4C1 /* AddTableViewController.swift */; };
+		372029371B710679007163CF /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372029361B710679007163CF /* PedometerViewController.swift */; };
 		372DC7721B6139090095286C /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372DC7711B6139090095286C /* ReviewViewController.swift */; };
 		372DC7741B6156270095286C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372DC7731B6156260095286C /* MapKit.framework */; };
 		3734BD011B56BB33008C8A03 /* DailyObjectivesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */; };
@@ -46,6 +47,7 @@
 		370917A21B553E0C0058B26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		370917A31B553E0C0058B26A /* Daily_ObjectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily_ObjectiveTests.swift; sourceTree = "<group>"; };
 		371A517E1B665E7D00A7B4C1 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		372029361B710679007163CF /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		372DC7711B6139090095286C /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		372DC7731B6156260095286C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3734BD001B56BB33008C8A03 /* DailyObjectivesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyObjectivesTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				370917881B553E0B0058B26A /* Supporting Files */,
 				372DC7711B6139090095286C /* ReviewViewController.swift */,
 				371A517E1B665E7D00A7B4C1 /* AddTableViewController.swift */,
+				372029361B710679007163CF /* PedometerViewController.swift */,
 			);
 			path = "Daily-Objective";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				371A517F1B665E7D00A7B4C1 /* AddTableViewController.swift in Sources */,
 				3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */,
 				372DC7721B6139090095286C /* ReviewViewController.swift in Sources */,
+				372029371B710679007163CF /* PedometerViewController.swift in Sources */,
 				3709178E1B553E0C0058B26A /* Daily_Objective.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

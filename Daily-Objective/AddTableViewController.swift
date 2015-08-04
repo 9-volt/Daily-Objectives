@@ -122,6 +122,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
             objective.name = nameTextField.text
             objective.quantity = quantityTextField.text
             objective.image = UIImagePNGRepresentation(imageView.image)
+            objective.reminder = dateFormatter.stringFromDate(datePicker.date)
             
             var e: NSError?
             if managedObjectContext.save(&e) != true {
@@ -134,8 +135,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         // If all fields are correctly filled in, extract the field value
           println("Name: " + nameTextField.text)
           println("Quantity: " + quantityTextField.text)
-        let currentDate = datePicker.date
-        println(dateFormatter.stringFromDate(datePicker.date))
+          println(dateFormatter.stringFromDate(datePicker.date))
         
         
         // Execute the unwind segue and go back to the home screen

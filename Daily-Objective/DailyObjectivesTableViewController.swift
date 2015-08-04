@@ -142,6 +142,7 @@ class DailyObjectivesTableViewController: UITableViewController, NSFetchedResult
         let objective = objectives[indexPath.row]
         cell.nameLabel.text = objective.name
         cell.thumbnailImageView.image = UIImage(data: objective.image)
+        cell.reminderLabel.text = "Remind: \(objective.reminder)"
         //cell.progressBar.progress = progress
         
         

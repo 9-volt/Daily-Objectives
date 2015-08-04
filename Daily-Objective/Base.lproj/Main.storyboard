@@ -32,8 +32,8 @@
                                             <rect key="frame" x="86" y="60" width="222" height="2"/>
                                             <color key="progressTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </progressView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HH:MM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL0-ZV-nJ2">
-                                            <rect key="frame" x="152" y="34" width="205" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HH:MM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL0-ZV-nJ2" userLabel="Reminder">
+                                            <rect key="frame" x="95" y="34" width="205" height="18"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -44,6 +44,7 @@
                                     <outlet property="nameLabel" destination="tYb-Vw-Yx7" id="X27-Ch-Qh2"/>
                                     <outlet property="progressBar" destination="fJD-2u-WZZ" id="YlD-5R-3su"/>
                                     <outlet property="progressLabel" destination="rL0-ZV-nJ2" id="gCj-k0-L2n"/>
+                                    <outlet property="reminderLabel" destination="rL0-ZV-nJ2" id="Nvc-Y2-AuI"/>
                                     <outlet property="thumbnailImageView" destination="yGS-qK-noX" id="YZU-Pz-cun"/>
                                     <segue destination="3Ce-ST-c3d" kind="push" identifier="showObjectiveDetail" id="kbP-Gm-s2K"/>
                                 </connections>
@@ -69,7 +70,7 @@
         <!--New Objective-->
         <scene sceneID="g08-jt-9gC">
             <objects>
-                <tableViewController id="IoC-wf-Sla" customClass="AddTableViewController" customModule="Daily_Objective" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="partialCurl" id="IoC-wf-Sla" customClass="AddTableViewController" customModule="Daily_Objective" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sax-tA-Vo2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +86,28 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="0da-SV-bjj">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                                                 </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="G28-Yt-osO">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G28-Yt-osO" id="0jg-c6-Vcu">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRF-KY-1V0">
+                                                    <rect key="frame" x="18" y="0.0" width="132" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bY7-Js-f9W">
+                                                    <rect key="frame" x="20" y="29" width="280" height="29"/>
+                                                    <segments>
+                                                        <segment title="Quantitative"/>
+                                                        <segment title="Second"/>
+                                                        <segment title="Sport"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -155,7 +178,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tub-AI-Prq">
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="tub-AI-Prq">
                                                     <rect key="frame" x="0.0" y="-3" width="320" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="460039059.50375497">
                                                         <!--2015-07-31 12:37:39 +0000-->
@@ -455,7 +478,7 @@
         <!--About-->
         <scene sceneID="lhi-bD-ycz">
             <objects>
-                <viewController id="VKQ-ig-NTj" sceneMemberID="viewController">
+                <viewController id="VKQ-ig-NTj" customClass="PedometerViewController" customModule="Daily_Objective" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vZd-SC-G6J"/>
                         <viewControllerLayoutGuide type="bottom" id="goN-VF-Bpa"/>
@@ -463,6 +486,41 @@
                     <view key="view" contentMode="scaleToFill" id="bCI-kg-mHQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLt-CI-f6R">
+                                <rect key="frame" x="139" y="114" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXd-oq-hMO">
+                                <rect key="frame" x="133" y="321" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAV-Mf-eqb">
+                                <rect key="frame" x="141" y="231" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR9-kR-K1D">
+                                <rect key="frame" x="136" y="186" width="53" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="state" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VV0-hA-iXR">
+                                <rect key="frame" x="142" y="458" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN0-qP-RJa">
+                                <rect key="frame" x="115" y="350" width="90" height="90"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <connections>
@@ -471,6 +529,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="LM6-JE-NE3"/>
+                    <connections>
+                        <outlet property="activityState" destination="VV0-hA-iXR" id="bsU-aE-gqK"/>
+                        <outlet property="stateImageView" destination="TN0-qP-RJa" id="PUk-Ft-afF"/>
+                        <outlet property="steps" destination="gAV-Mf-eqb" id="asf-t6-q6B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gt-pG-gCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pinchGestureRecognizer id="M5l-v0-fT1"/>
