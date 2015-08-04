@@ -21,7 +21,6 @@
 		3734BD031B56CA43008C8A03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */; };
 		379FE62B1B5EA13900B9E67A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379FE62A1B5EA13900B9E67A /* DetailViewController.swift */; };
 		379FE62D1B5F0FAD00B9E67A /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379FE62C1B5F0FAD00B9E67A /* Objective.swift */; };
-		37D84AD91B5808E300B6CAF4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37D84AD81B5808E300B6CAF4 /* Entitlements.plist */; };
 		37FCE7EA1B60F019000E1BAD /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCE7E91B60F019000E1BAD /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		3734BD021B56CA42008C8A03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		379FE62A1B5EA13900B9E67A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		379FE62C1B5F0FAD00B9E67A /* Objective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
-		37D84AD81B5808E300B6CAF4 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		37FCE7E91B60F019000E1BAD /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				372DC7731B6156260095286C /* MapKit.framework */,
-				37D84AD81B5808E300B6CAF4 /* Entitlements.plist */,
 				370917871B553E0B0058B26A /* Daily-Objective */,
 				370917A01B553E0C0058B26A /* Daily-ObjectiveTests */,
 				370917861B553E0B0058B26A /* Products */,
@@ -228,7 +225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37D84AD91B5808E300B6CAF4 /* Entitlements.plist in Resources */,
 				370917931B553E0C0058B26A /* Main.storyboard in Resources */,
 				370917981B553E0C0058B26A /* LaunchScreen.xib in Resources */,
 				370917951B553E0C0058B26A /* Images.xcassets in Resources */,
@@ -317,9 +313,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -364,9 +360,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -391,7 +387,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "Daily-Objective/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,7 +399,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "Daily-Objective/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
