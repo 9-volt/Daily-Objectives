@@ -18,10 +18,11 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var quantityTextField:UITextField!
  // @IBOutlet weak var repetition ? field
     @IBOutlet weak var datePicker:UIDatePicker!
+    @IBOutlet weak var type:UISegmentedControl!
     
     var objective:Objective!
     
-    /// A date formatter to format the `date` property of `datePicker`.
+    /// A date formatter to format the `date` propertof `datePicker`.
     lazy var dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
         
@@ -55,6 +56,22 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
 
     
     
+    @IBAction func changeType(sender: UISegmentedControl) {
+        var cell3Index = NSIndexPath.init(forRow: 3, inSection: 0)
+        var quantityCell = self.tableView.cellForRowAtIndexPath(cell3Index)
+
+        if sender.selectedSegmentIndex == 1 {
+            quantityCell?.hidden = true
+        } else {
+            quantityCell?.hidden = false
+        }
+
+        // When updated with animation - cell border haswrong position
+//        self.tableView.reloadRowsAtIndexPaths([cell3Index], withRowAnimation: UITableViewRowAnimation.None)
+
+        self.tableView.reloadData()
+    }
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
             if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
@@ -77,6 +94,25 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        println(indexPath.row)
+        println(type.selectedSegmentIndex)
+        if indexPath.row == 0 {
+            return 150.0
+        }
+        
+        if type.selectedSegmentIndex == 1 && indexPath.row == 3 {
+            return 0.0
+        }
+        
+        if indexPath.row >= 1 && indexPath.row <= 4 {
+            return 72.0
+        }
+        
+        return 200.0
+    }
+    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
             imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
