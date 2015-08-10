@@ -16,10 +16,16 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var imageView:UIImageView!
     @IBOutlet weak var nameTextField:UITextField!
     @IBOutlet weak var quantityTextField:UITextField!
- // @IBOutlet weak var repetition ? field
+    @IBOutlet weak var schedule: UITextField!
     @IBOutlet weak var datePicker:UIDatePicker!
+    @IBOutlet weak var toggle: UISwitch!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var type: UISegmentedControl!
+    
     
     var objective:Objective!
+    var pickerVisible = false
+    var selectedType = -1
     
     /// A date formatter to format the `date` property of `datePicker`.
     lazy var dateFormatter: NSDateFormatter = {
@@ -38,7 +44,10 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         
         datePicker.addTarget(self, action: "datePickerDateChanged:", forControlEvents: .ValueChanged)
-
+        
+        tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -74,9 +83,15 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
             }
         }
         
+        if indexPath.row == 6 {
+            pickerVisible = !pickerVisible
+            tableView.reloadData()
+        }
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
+    
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
             imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -98,8 +113,6 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         
         if nameTextField.text == "" {
             errorField = "name"}
-//        } else if locationTextField.text == "" {
-//            errorField = "location"
 //        } else if typeTextField.text == "" {
 //            errorField = "type"
 //        }
@@ -142,7 +155,73 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         performSegueWithIdentifier("unwindToHomeScreen", sender: self)
     }
 
+    @IBAction func changeType(sender: UISegmentedControl) {
+        var cell3Index = NSIndexPath.init(forRow: 3, inSection: 0)
+        var quantityCell = self.tableView.cellForRowAtIndexPath(cell3Index)
+        
+        if sender.selectedSegmentIndex == 1 {
+            quantityCell?.hidden = true
+        }   else    {
+            quantityCell?.hidden = false
+        }
+        
+        // When updated with animation - cell border haswrong position
+        self.tableView.reloadRowsAtIndexPaths([cell3Index], withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    
+    @IBAction func toggleValueChnaged(sender: UISwitch) {
+        tableView.reloadData()
+    }
+    
+    
+    @IBAction func dateChanged(sender: UIDatePicker) {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        date.text = dateFormatter.stringFromDate(sender.date)
+    }
+    
 
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+            println(indexPath.row)
+            println(type.selectedSegmentIndex)
+        
+        if indexPath.row == 0 {
+            return 150.0
+        }
+        
+        if type.selectedSegmentIndex == 1 && indexPath.row == 3 {
+            return 0.0
+        }
+        
+        if indexPath.row >= 1 && indexPath.row < 5 {
+            return 72.0
+        }
+        
+        if indexPath.row == 5 {
+            return 52.0
+        }
+        
+        if indexPath.row == 6 && toggle.on == false {
+            return 0.0
+        }
+        if indexPath.row == 7 {
+            if toggle.on == false || pickerVisible == false {
+                return 0.0
+            }
+            return 165.0
+        }
+        return 44.0
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
